@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "main": "dist/server/server/server.js",
   "scripts": {
-    "dev:backend": "ts-node-dev --respawn --transpile-only --project tsconfig.backend.json backend/server/server.ts",
-    "dev:frontend": "webpack serve --config webpack.config.js --mode development --port 4000",
-    "dev": "concurrently \"yarn dev:backend\" \"yarn dev:frontend\"",
-    "build:frontend": "webpack --mode production",
-    "build:backend": "tsc -p tsconfig.backend.json",
-    "build": "yarn build:backend && yarn build:frontend",
     "start": "node dist/server/server/server.js"
   },
   "engines": {
