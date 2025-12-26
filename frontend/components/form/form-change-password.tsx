@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import MyInput from "components/input/Input";
 import MyButton from "components/button/Button";
-import formCss from "./form.module.css"
-import cssButton from "../button/button.module.css";
+import './form.css';
+import '../button/button.css';
 import { useChangePassword } from "hooks/changePassword"; // Asegúrate de que la ruta sea correcta
 
 export default function MyChangerPassword() {
@@ -36,14 +36,14 @@ export default function MyChangerPassword() {
     await changePassword(currentPassword, newPassword);
   };
 
-      const handleBack = async (e) => {
+      const handleBack = async (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       window.history.back();
     }
   return (
     <div style={{ margin: "0 auto", textAlign: "center" }}>
       <h1 style={{ color: "#5982FF" }}>Nueva contraseña</h1>
-      <form className={formCss.formStyle} onSubmit={handleSubmit}>
+      <form className="formStyle" onSubmit={handleSubmit}>
         <MyInput
           htmlFor="currentPassword"
           name="currentPassword"
@@ -71,10 +71,10 @@ export default function MyChangerPassword() {
         >
           Repite tu nueva contraseña
         </MyInput>
-        <MyButton type="button" className={cssButton.menu2Button} onClick={handleBack}>
+        <MyButton type="button" className="menu2Button" onClick={handleBack}>
           ← Volver al menú
         </MyButton>
-        <MyButton type="submit" className={cssButton.menu1Button}>
+        <MyButton type="submit" className="menu1Button">
           {loading ? "Guardando..." : "💾 Guardar Cambios"}
         </MyButton>
       </form>

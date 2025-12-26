@@ -1,8 +1,8 @@
 import React from "react";
 import MyInput from "components/input/Input";
 import MyButton from "components/button/Button";
-import formCss from "./form.module.css"
-import buttonCss from "../button/button.module.css"
+import './form.css';
+import '../button/button.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useLogIn } from "hooks/login";
@@ -32,7 +32,7 @@ export default function MyFormLogIn() {
     }
   };
   return (
-<form className={formCss.formStyle} onSubmit={handleSubmit}>
+<form className="formStyle" onSubmit={handleSubmit}>
   {error && <p style={{ color: 'red' }}>{error}</p>} {/* Muestra el error si existe */}
   <h1>Inicia Sesión!!</h1>
   <MyInput htmlFor="email"type="email"name="email"placeholder="Ingrese su Email">
@@ -41,7 +41,7 @@ export default function MyFormLogIn() {
   <MyInput htmlFor="password"type="password"name="password"placeholder="Ingrese su Contraseña">
     Password
   </MyInput>
-  <MyButton id="button-form" type="submit" className={buttonCss.menu1Button}>Confirmar</MyButton>
+  <MyButton id="button-form" type="submit" className="menu1Button">Confirmar</MyButton>
   <Link to="/register">¿No tenes una cuenta? Registrate!</Link>
 </form>
   )

@@ -1,5 +1,5 @@
 import React from "react";
-import inputCss from "./input.module.css"
+import './input.css';
 interface MyInputProps {
   children: React.ReactNode;
   htmlFor: string
@@ -15,8 +15,8 @@ export default function MyInput({ children, htmlFor, type, name, placeholder, on
 
   return(
     <div>
-      <label className={inputCss.LabelStyle} htmlFor={htmlFor}>{children}</label>
-      <input className={inputCss.InputStyle} id={htmlFor} type={type} name={name} required placeholder={placeholder} autoComplete={autoComplete} onChange={onChange}  />
+      <label className="labelStyle" htmlFor={htmlFor}>{children}</label>
+      <input className="inputStyle" id={htmlFor} type={type} name={name} required placeholder={placeholder} autoComplete={autoComplete} onChange={onChange}  />
     </div>
   )
 }

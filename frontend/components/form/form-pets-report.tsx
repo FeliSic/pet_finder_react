@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useDropzone from "hooks/dropzone";
 import { useNavigate } from "react-router-dom";
-import formCss from "./form.module.css"
+import './form.css';
 
 export default function CreateReport() {
   const navigate = useNavigate();
@@ -19,12 +19,12 @@ export default function CreateReport() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setReportData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleLocationChange = (e) => {
+  const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const value = e.target.value;
   setReportData((prevData) => ({
     ...prevData,
@@ -36,7 +36,7 @@ export default function CreateReport() {
 };
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     const userId = JSON.parse(localStorage.getItem("userId") || "{}");
@@ -55,7 +55,7 @@ export default function CreateReport() {
       if (!res.ok) throw new Error("Error al crear el reporte");
       alert("Reporte creado con éxito");
       navigate("/myreports"); // Redirige a la lista de reportes
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
     } finally {
       setLoading(false);
@@ -68,7 +68,7 @@ export default function CreateReport() {
 
   return (
     <div>
-      <form className={formCss.formStyle} onSubmit={handleSubmit}>
+      <form className="formStyle" onSubmit={handleSubmit}>
       <h1 style={{textAlign: "center"}}>Crear Reporte</h1>
       {loading && <p>Cargando...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}

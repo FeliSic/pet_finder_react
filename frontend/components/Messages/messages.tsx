@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
-import formCss from "../form/form.module.css"
+import "../form/form.css"
+
+
+type Message = {
+  name: string;
+  phone: string;
+  message: string;
+}
+
 export default function MyMessages() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] =  useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
   const [newMessage, setNewMessage] = useState({ name: "", phone: "", message: "" });
 
@@ -36,7 +44,7 @@ export default function MyMessages() {
   };
 
   return (
-    <div className={formCss.formStyle}>
+    <div className="formStyle">
       <h2>Mis Mensajes</h2>
       {loading ? <p>Cargando mensajes...</p> : (
         <ul>

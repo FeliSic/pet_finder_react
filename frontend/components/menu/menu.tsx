@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MyButton from "components/button/Button";
-import buttonCss from "../button/button.module.css";
+import '../button/button.css';
 import { useNavigate } from "react-router";
 
 export default function MyMenu() {
@@ -12,12 +12,12 @@ export default function MyMenu() {
     navigate("/register"); // Redirige a la página de login
   };
 
-  const handleChangeData = (e) => {
+  const handleChangeData = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     navigate("/change-data");
   };
 
-  const handleChangePassword = (e) => {
+  const handleChangePassword = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     navigate("/change-password");
   };
@@ -64,10 +64,10 @@ export default function MyMenu() {
     <div>
       <h1>Mis datos</h1>
       <div style={{ width: "250px", display: "flex", flexDirection: "column", margin: "0 auto", justifyContent: "center", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-        <MyButton type="button" onClick={handleChangeData} className={buttonCss.menu1Button}>
+        <MyButton type="button" onClick={handleChangeData} className="menu1Button">
           Modificar datos personales
         </MyButton>
-        <MyButton type="button" onClick={handleChangePassword} className={buttonCss.menu1Button}>
+        <MyButton type="button" onClick={handleChangePassword} className="menu1Button">
           Modificar contraseña
         </MyButton>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MyButton from "components/button/Button";
 import MyInput from "components/input/Input";
-import cssModal from "./neabyPets.module.css"
+import './nearbyPets.css';
 
 interface ReportModalProps {
   petName: string;
@@ -22,9 +22,9 @@ const ReportModal: React.FC<ReportModalProps> = ({ petName, onClose, onSubmit })
   };
 
   return (
-    <div className={cssModal.modalStyle}>
-      <div className={cssModal.modalContentStyle}>
-        <button className={cssModal.closeButtonStyle} onClick={onClose}>
+    <div className="modalStyle">
+      <div className="modalContentStyle">
+        <button className="closeButtonStyle" onClick={onClose}>
           &times;
         </button>
         <h2 style={{ color: "#5982FF" }}>🐾 Reportar avistaje de {petName}</h2>
