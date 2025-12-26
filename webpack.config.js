@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 module.exports = {
-  entry: "./frontend/index.tsx", // Punto de entrada
+  entry: "./frontend/public/index.tsx", // Punto de entrada
   output: {
     path: path.resolve(__dirname, "dist/public"), // Carpeta de salida
     filename: "bundle.js", // Nombre del archivo generado
