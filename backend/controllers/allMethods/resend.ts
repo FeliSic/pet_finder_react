@@ -17,20 +17,15 @@ interface EmailData {
 
 export const sendEmail = async (emailData: EmailData) => {
   try {
-    const { data, error } = await resend.emails.send({
-      from: 'Pet Finder <onboarding@resend.dev>', // Cambiar cuando tengas dominio propio
+    const result = await resend.emails.send({
+      from: 'Pet Finder <onboarding@resend.dev>',
       to: emailData.to,
       subject: emailData.subject,
       html: emailData.html,
     });
 
-    if (error) {
-      console.error('Error al enviar email:', error);
-      throw error;
-    }
-
-    console.log('Email enviado exitosamente:', data);
-    return data;
+    console.log('Email enviado exitosamente:', result);
+    return result;
   } catch (error) {
     console.error('Error en sendEmail:', error);
     throw error;
