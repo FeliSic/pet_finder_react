@@ -13,6 +13,7 @@
     "build": "yarn clean && yarn debug && yarn build:backend && yarn build:frontend",
     "build:frontend": "webpack --mode production",
     "build:backend": "tsc -p tsconfig.backend.json",
+    "build:vercel": "tsc && webpack --config webpack.config.js",
     "start": "node dist/server/server/server.js"
   },
   "dependencies": {
