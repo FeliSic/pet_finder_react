@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist/server", // o donde quieras que compile
+    "outDir": "./dist/server/server", // o donde quieras que compile
     "rootDir": "./backend",
     "module": "commonjs",
     "target": "es6",
