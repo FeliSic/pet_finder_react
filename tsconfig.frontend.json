@@ -1,0 +1,30 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es6", // o "es6" según lo que necesites
+    "baseUrl": "frontend",
+    "paths": {
+      "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"],
+      "pages/*": ["pages/*"]
+    },
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx", // o "react" si usas una versión anterior
+    "outDir": "./dist/public", // carpeta donde se generarán los archivos compilados
+    "declaration": false,
+    "noEmit": false,
+  },
+  "include": ["frontend/**/*", "declarations.d.ts"],
+  
+  "exclude": ["node_modules"] // excluye la carpeta node_modules
+}
