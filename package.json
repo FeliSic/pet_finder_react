@@ -1,12 +1,19 @@
 {
   "name": "proyecto2",
   "version": "1.0.0",
-  "main": "dist/server/server/server.js",
+  "main": "index.js",
+  "module": "esnext",
+  "license": "MIT",
   "scripts": {
+    "dev:backend": "ts-node-dev --respawn --transpile-only --project tsconfig.backend.json backend/server/server.ts",
+    "dev:frontend": "webpack serve --config webpack.config.js --mode development --port 4000",
+    "dev": "concurrently \"yarn dev:backend\" \"yarn dev:frontend\"",
+    "debug": "pwd && ls -la && ls -la frontend/ && cat webpack.config.js | head -20",
+    "clean": "rm -rf dist || rmdir /s /q dist",
+    "build": "yarn clean && yarn debug && yarn build:backend && yarn build:frontend",
+    "build:frontend": "webpack --mode production",
+    "build:backend": "tsc -p tsconfig.backend.json",
     "start": "node dist/server/server/server.js"
-  },
-  "engines": {
-    "node": "24.x"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
